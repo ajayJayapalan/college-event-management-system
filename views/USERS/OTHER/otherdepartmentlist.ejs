@@ -1,0 +1,74 @@
+<!--  /************************************** Departments *****************************/ -->
+
+
+
+<%- include('otherheader.ejs') %>
+<div class="notify-wrapper visi">
+    <!--         <h4>Notification 1</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 2</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 3</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+        </div> 
+
+
+
+<main class="main-2 ">
+    <div class="dep-wrapper">
+          
+        <a href="/otherCollege"" class="dep-2 dep">
+            <h4>College Event</h4>
+            <h4 class="ur-clg">Your College</h4>
+        </a>
+        <% for(let i =0 ; i < deplist.length ; i++) {%>
+            
+        <a href="/other/<%=deplist[i].department%>" class=" dep">
+            <h4><%= deplist[i].department%></h4>
+        </a>
+        <%  } %>
+      <!--   <a href="#" class=" dep">
+            <h4>Bio Technology</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Mathematics</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Physics</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Tourism</h4>
+        </a> -->
+    </div>
+</main>
+<script>
+    document.getElementById('dep-prf').classList.add("point");
+
+    
+/*******************NOTIFICATION************************* */
+
+/* var notfi  = document.getElementById("notify");
+var x = 0 ;
+
+notfi.onclick = notfy ;
+
+function  notfy()
+{
+    if(x==0)
+    {
+        document.getElementById("notify").classList.add("point");
+        document.querySelector(".notify-wrapper").classList.remove("visi");
+        x=1;
+    }else{
+        document.getElementById("notify").classList.remove("point");
+
+        document.querySelector(".notify-wrapper").classList.add("visi");
+        x=0;
+    }
+} */
+</script>
+
+<%- include('../PARTIALS/footerUser.ejs') %>

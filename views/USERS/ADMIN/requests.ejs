@@ -1,0 +1,62 @@
+
+<%- include('headerUser.ejs') %>
+
+<div style="min-height: 80vh;" class="guard">
+
+
+<%for(let i =0; i< data.length;i++) {%>
+
+
+<div
+style="
+background-color: white;
+border-radius: 20px;
+margin: 20px 30px;
+display: flex;
+justify-content: left;
+align-items: center;
+padding: 10px 30px;
+box-shadow: 0 0 15px -5px grey;
+
+"
+
+
+class="request-wrapper">
+<div style="
+    width: 50vw;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 10px 30px;">
+    <h2 style="padding: 0px 5px;" ><%=data[i].rid%> :</h2>
+    <h2  style="padding: 0px 5px;"> <%=data[i].fname%> <%=data[i].lname%></h2>
+    <% if(data[i].department == undefined){ %>
+        <span  style="padding: 0px 5px;">( None , <%=data[i].type%> )</span>
+        <% }else{ %>
+    <span  style="padding: 0px 5px;">( <%=data[i].department.department%> , <%=data[i].type%> )</span>
+  <%}%>  </div>
+    <div style="
+    width: 50vw;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 10px 30px;">
+    <form style="margin : 0 0vw 0px 0vw;   " action="/acceptuser"  method="POST">
+        <!-- <input type="text" name="accept" class="visi" value="accept"> -->
+        <input type="text" name="accept" class="visi" value="<%=data[i].rid%>">
+        <button style="margin: 10px 10px 0px 0px;" class="cmp-publish" type="submit" >Accept</button>
+    </form>
+    <form action="/rejectuser"  method="POST">
+     <!--    <input type="text" name="reject" class="visi" value="Reject"> -->
+        <input type="text" name="reject" class="visi" value="">
+        <button style="margin: 20px 0px 10px 0px;" class="cmp-publish" type="submit" >Reject</button>
+    </form>
+    </div>
+</div>
+<%}%>
+</div>
+<script>
+    document.getElementById('dep-prf').classList.add("point");
+    </script>
+
+<%- include('footerUser.ejs') %>

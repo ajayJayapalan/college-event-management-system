@@ -1,0 +1,114 @@
+
+
+<%- include('../PARTIALS/headerUser.ejs') %>
+
+
+<div class="notify-wrapper visi">
+    <!--         <h4>Notification 1</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 2</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 3</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+        </div> 
+
+
+<!--                          Student profile                             -->
+
+<main class="main-3 ">
+    <div class="std-wrapper">
+        <div class="prf-header">
+            <div class="prf-pic">
+                <img class="img-prf" src="/uploads/<%=img%>">
+            </div>
+            <div class="bio">
+                <h1><%= fname %></h1>
+                <%- console.log(fname)%>
+                <span><%= rid %></span>
+
+                <span>
+                    <%=dep%>
+                </span>
+            </div>
+          <a href="/compose">  <div class="plus">
+                <img src="../images/plus.png" alt="plus">
+            </div></a>
+        </div>
+        <div id="appr" class="approved point-2"><%=left%></div>
+        <div id="pend" class="pending"><%=right%></div>
+        <div  class="feed-wrapper-approve" >
+            <% for(let i =0 ; i < data.length ; i++) {%>
+                <%- console.log("kitunila")%>
+                <% if(data[i].status == 1) {%>
+             <div class="feed-1 feed">
+                
+                <h3><%=data[i].title%></h3>
+                <% if(data[i].img != null){%>
+                <img class="multer" src="/uploads/<%=data[i].img%>"  >
+               <%}%>
+                <p style="background-color: rgba(255, 255, 255, 0.473); border-radius: 10px; padding: 5px 10px; min-height: 50px;">
+                    <%=data[i].feed%>
+                </p>
+                
+            </div>
+
+            <% }} %>
+           
+        </div>
+        <div class="feed-wrapper-pending visi" >
+            <% for(let i =0 ; i < data.length ; i++) {%>
+                <% if(data[i].status == 0) {%>
+            <div class="feed-2 feed">
+                <h3>⌛ <%=data[i].title%></h3>
+                <% if(data[i].img != null){%>
+                <img class="multer" src="/uploads/<%=data[i].img%>"  >
+                <%}%>
+                <p style="background-color: rgba(255, 255, 255, 0.473); border-radius: 10px; padding: 5px 10px; min-height: 50px;">
+                    <%=data[i].feed%>
+                </p>
+               <br>
+               <% if(data[i].status == 0){%>
+               <p style="color: rgb(95, 183, 241); font-weight: bold; margin-left:20px;margin-top:-10px;">Pending</p>
+               <%}else{%>
+                <p style=" color: rgb(230, 86, 86); font-weight: bold; margin-left:20px;margin-top:-10px;">Deleted</p>
+                <%}%>
+            </div>
+
+            <% }} %>
+
+        </div>
+    </div>
+
+
+</main>
+<script type="text/javascript" src="/script/handler.js"></script>
+<script>
+    document.getElementById('stud-prf').classList.add("point");
+    
+/*******************NOTIFICATION************************* */
+
+var notfi  = document.getElementById("notify");
+var x = 0 ;
+
+notfi.onclick = notfy ;
+
+function  notfy()
+{
+    if(x==0)
+    {
+        document.getElementById("notify").classList.add("point");
+        document.querySelector(".notify-wrapper").classList.remove("visi");
+        x=1;
+    }else{
+        document.getElementById("notify").classList.remove("point");
+
+        document.querySelector(".notify-wrapper").classList.add("visi");
+        x=0;
+    }
+}
+</script>
+
+<%- include('../PARTIALS/footerUser.ejs') %>

@@ -1,0 +1,67 @@
+<%- include('../PARTIALS/headerUser.ejs') %>
+
+<div class="notify-wrapper visi">
+    <!--         <h4>Notification 1</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 2</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 3</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+        </div> 
+
+
+<div class="comp-main">
+<div class="comp-wrapper">
+      
+    <form action="/college/compose" method="POST" enctype="multipart/form-data">
+        <h1>compose</h1>
+        <div class="cmp-form-group">
+            <label for="title" class="cmp-title">Title</label><br>
+            <input class="cmp-form-control" id="title" type="text" name="title"><br>
+            <input class="visi"  type="text" name="dep" value="<%= dep%>">
+            <input class="visi"  type="text" name="rid" value="<%= rid%>">
+            <input class="visi"  type="text" name="id" value="<%= id%>">
+           
+            <label for="post" class="cmp-title">post</label><br>
+            <textarea class="cmp-form-control" id="post" name="post" rows="7" cols="50"></textarea><br>
+           <br>
+            <label  for="image">Upload Image</label>
+            <br>
+            <input style="margin-top: 10px;" type="file" name="image" id="image" >
+            <br>
+            <button class="cmp-publish" type="submit">Publish</button>
+        </div>
+    </form>
+    </div></div>
+</div>
+<script type="text/javascript" src="/script/handler.js"></script>
+<script>
+    
+    
+/*******************NOTIFICATION************************* */
+
+var notfi  = document.getElementById("notify");
+var x = 0 ;
+
+notfi.onclick = notfy ;
+ 
+function  notfy()
+{
+    if(x==0)
+    {
+        document.getElementById("notify").classList.add("point");
+        document.querySelector(".notify-wrapper").classList.remove("visi");
+        x=1;
+    }else{
+        document.getElementById("notify").classList.remove("point");
+
+        document.querySelector(".notify-wrapper").classList.add("visi");
+        x=0;
+    }
+}
+</script>
+
+    <%- include('../PARTIALS/footerUser.ejs') %>

@@ -1,0 +1,120 @@
+<%- include('headerUser.ejs') %>
+
+
+<div style="
+min-height: 80vh;
+margin: 20px 50px;
+
+border-radius: 20px;
+box-shadow: 0 0 15px -5px grey;
+padding: 10px 30px;
+
+
+
+" class="god">
+
+    
+        <div style="margin: 50px 50px 50px 50px;">
+            <div style="display: flex; align-items: center;
+            padding: 5px;
+            background: white;
+            margin-right: 50vw;
+           justify-content: space-around;
+            margin-left: 13px;
+            border-radius: 20px; 
+            box-shadow: 0 0 15px -5px grey;
+            ">
+             <% if(imgName == "pen"){ %>
+                
+               
+                    <h2 style="margin-left: 20px; "> 
+                       
+               Principal  :  <span style="color:red"> <%=name%></span></h2>
+               <a href="/admin/princi"> <div >  <img style=" margin: 0px 10px 0px 30px; width: 30px ; height: 30px;" src="../images/pen.png" alt="pen">
+               </div> </a>  <%} else{ %>
+                <h2 style="margin-left: 20px; color: red;"> 
+               
+                    <h2 style="margin-left: 20px; "> 
+                       
+               Principal : <%=name%></h2>
+               <form style="margin: 0px 10px; "  action="/admin/handling/deleteprinci" method="POST">
+                <input value="delete" name="delete" type="text" style=" display: none; margin: 35px 20px 0px 0px; width: 30px ; height: 30px;">
+        <button style="border: none; background-color: white; cursor: pointer;" type="submit"><img style=" margin:  0px 0px; width: 30px ; height: 30px;" src="../images/trash.png"></button>
+        
+        </form>
+                
+                <%}%>
+            </div>
+            <div style="display: flex; align-items: center;
+            padding: 5px;
+            background: white;
+            justify-content: space-around;
+            margin-top: 20px;
+            margin-right: 50vw;
+            margin-left: 13px;
+            border-radius: 20px; 
+            box-shadow: 0 0 15px -5px grey;
+            ">
+                <h2 style="margin-left: 20px;" >Create New Department</h2>
+                <a href="/admin/compose"> <div class="plus">  <img style=" margin: 0px 10px 0px 10px; width: 40px ; height: 40px;" src="../images/plus.png" alt="plus">
+                </div> </a> 
+            </div>
+           
+           
+            <div style="margin: 20px 10px ; background: white; min-height: 60vh;
+            border-radius: 20px; 
+            box-shadow: 0 0 15px -5px grey;
+            
+            padding: 20px 0px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            ">
+                <%for(let i =0; i< data.length;i++) {%>
+                <div style="
+                margin: 10px 0px;
+                width: 75vw;
+                min-height: 10vh;
+                background: #f1f4fb;
+                box-shadow: 0 0 15px -5px grey;
+                border-radius: 20px;
+                padding: 0px 10px ;
+                display: flex;
+                justify-content: space-between;
+                
+                " class="">
+            
+            <div>
+            <h3> <%=data[i].department%> </h3>
+            <p><%=data[i].hod%></p>
+        </div>
+        <div style="display: flex; align-items: center;">
+            
+            <form style="margin: 0px 10px;" action="/admin/handling" method="POST">
+            <input value="<%=data[i].department%>" name="edit" type="text" style=" display: none; margin: 35px 20px 0px 0px; width: 30px ; height: 30px;">
+            <button style="border: none; background-color: #f1f4fb; cursor: pointer;" type="submit"><img style=" margin:  0px 0px; width: 30px ; height: 30px;" src="../images/pen.png"></button>
+                </form>
+                <form style="margin: 0px 10px;"  action="/admin/handling" method="POST">
+                    <input value="<%=data[i].department%>" name="delete" type="text" style=" display: none; margin: 35px 20px 0px 0px; width: 30px ; height: 30px;">
+            <button style="border: none; background-color: #f1f4fb; cursor: pointer;" type="submit"><img style=" margin:  0px 0px; width: 30px ; height: 30px;" src="../images/trash.png"></button>
+            
+            </form>
+        </div>
+        
+            
+            
+           
+            </div>
+            <%}%>
+        </div>
+    </div>
+    </div>
+
+
+ 
+    <script>
+        document.getElementById('stud-prf').classList.add("point");
+        </script>
+
+
+ <%- include('footerUser.ejs') %>

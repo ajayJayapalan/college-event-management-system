@@ -1,0 +1,59 @@
+<!--  /************************************** Departments *****************************/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/student-style.css">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
+    <title>Event.io</title>
+</head>
+
+<body>
+
+
+
+<main class="main-2 ">
+    <div class="dep-wrapper">
+        
+        
+
+      <%  for(let i=0; i < data.length;i++){ %>
+            
+            <%     if(data[i].department != undefined){ %>
+    
+                  <%   if(data[i].department.department == dep) { %>
+                     
+                       <a href="/<%=dep%>/<%=data[i].rid%>" class=" dep" style="position: relative;">
+        <div>   <h4><%=data[i].fname%> <%=data[i].lname%></h4>
+            <h5><%=data[i].rid%></h5></div> <div style=" position: absolute; top: 30%; right: 10%;"><h4><%=data[i].type%></h4></div>
+        </a>
+                         
+                   <%  }}} %>
+
+
+
+
+        
+        
+      <!--   <a href="#" class=" dep">
+            <h4>Bio Technology</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Mathematics</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Physics</h4>
+        </a>
+        <a href="#" class=" dep">
+            <h4>Tourism</h4>
+        </a> -->
+    </div>
+</main>
+<div style="height: 10vh;">
+
+</div>
+
+<%- include('../PARTIALS/footerUser.ejs') %>

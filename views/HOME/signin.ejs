@@ -1,0 +1,23 @@
+<%- include('partialsSignin/header.ejs') %>
+    <main class="main">
+        <div class="in-reg">
+            <form action="/signin" method="POST">
+                <h1 align="center" style="margin: 10px;">Sign In</h1>
+                <hr style="color: black;">
+                <div class="grid-content">
+                    <p class="email">Email</p>
+                    <p class="colan-1">:</p>
+                   <span class="input-1"> <input type="email" name="email" class="form-control" required placeholder="Enter Email ID"></span>
+                    
+
+
+                  
+                   <p class="password">Password</p>
+                   <p class="colan-2">:</p>
+                  <span class="input-2"> <input type="password" value="Qwerty@123" name="password" class="form-control" required placeholder="Enter Password "></span>
+                  <button class="btn-signin" type="submit" value="signin">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include('partialsSignin/footer.ejs') %>

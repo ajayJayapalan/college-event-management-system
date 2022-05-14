@@ -1,0 +1,122 @@
+
+
+<%- include('headerUser.ejs') %>
+
+
+<div class="notify-wrapper visi">
+    <!--         <h4>Notification 1</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 2</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 3</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+        </div> 
+
+
+<!--                          hod profile                             -->
+
+<main class="main-3 ">
+    <div class="std-wrapper">
+        <div class="prf-header">
+            <div class="prf-pic">
+                <img class="img-prf" src="/uploads/<%=img%>">
+            </div>
+            <div class="bio">
+                <h1><%= fname %></h1>
+                
+                <span><%= rid %></span>
+ 
+                <span>
+                  College Principal  
+                </span>
+            </div>
+          <a href="/principal/compose">  <div class="plus">
+                <img src="../images/plus.png" alt="plus">
+            </div></a>
+        </div>
+        <div id="appr" class="approved point-2"><%=left%></div>
+        <div id="pend" class="pending"><%=right%></div>
+        <div  class="feed-wrapper-approve" >
+            <% for(let i =0 ; i < data.length ; i++) {%>
+                <%if(data[i].status){%>
+             <div style="padding: 20px;" class="feed-1 feed">
+                
+                <h3 style="padding: 10px ; background-color: white; display: inline; margin: 0px 20px; border-radius: 10px;"><%=data[i].title%></h3>
+                <% if(data[i].img != null){%>
+                <img  class="multer" src="/uploads/<%=data[i].img%>"  >
+                <%}%>
+                <p style="background-color: white; padding: 10px;min-height: 4rem; border-radius: 10px;">
+                    <%=data[i].feed%>
+                </p>
+                
+            </div>
+
+            <% }} %>
+           
+        </div>
+        <div class="feed-wrapper-pending visi" >
+            <% for(let i =0 ; i < dat.length ; i++) {%>
+                
+                <%#if(!data[i].appro){%>
+            <div class="feed-2 feed">
+                <div style="background-color: #ffffff3d; padding: 10px; border-radius: 20px; box-shadow: 0px 0px 5px -5px grey;">
+                <h3>⌛ <%=dat[i].rid%> : <%=dat[i].author.fname%> </h3><h3> <%=dat[i].title%></h3>
+                <% if(dat[i].img != null){%>
+<img  class="multer" src="/uploads/<%=dat[i].img%>" style=" max-width: 200px;" >
+                    <%}%>
+                <p style="background-color: white; padding: 10px; height: 4rem; border-radius: 10px;">
+                    <%=dat[i].feed%>
+                </p>
+            </div>
+                <div style="display: flex; " >
+                <form style="margin : 0 10px;" action="/acceptPrinci"  method="POST">
+                    <!-- <input type="text" name="accept" class="visi" value="accept"> -->
+                    <input type="text" name="accept" class="visi" value="<%=dat[i]._id%>">
+                    <button class="cmp-publish" type="submit" >Accept</button>
+                </form>
+                <form action="/rejectPrinci"  method="POST">
+                 <!--    <input type="text" name="reject" class="visi" value="Reject"> -->
+                    <input type="text" name="reject" class="visi" value="<%=dat[i]._id%>">
+                    <button class="cmp-publish" type="submit" >Reject</button>
+                </form>
+               </div>
+            </div>
+
+            <% } %>
+
+        </div>
+    </div>
+
+
+</main>
+<script type="text/javascript" src="/script/handler.js"></script>
+<script>
+    document.getElementById('stud-prf').classList.add("point");
+    
+/*******************NOTIFICATION************************* */
+
+var notfi  = document.getElementById("notify");
+var x = 0 ;
+
+notfi.onclick = notfy ;
+ 
+function  notfy()
+{
+    if(x==0)
+    {
+        document.getElementById("notify").classList.add("point");
+        document.querySelector(".notify-wrapper").classList.remove("visi");
+        x=1;
+    }else{
+        document.getElementById("notify").classList.remove("point");
+
+        document.querySelector(".notify-wrapper").classList.add("visi");
+        x=0;
+    }
+}
+</script>
+
+<%- include('../PARTIALS/footerUser.ejs') %>

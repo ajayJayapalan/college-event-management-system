@@ -1,0 +1,156 @@
+.grid-content-2{
+    display: grid;
+    grid-template-columns: 1fr .1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-flow: row;
+    grid-template-areas: 
+    "t c1 i1"
+    "fn c2 i2"
+    "ln c3 i3"
+    "d c4 i4"
+    "id c5 i5"
+    "m c6 i6"
+    "p c7 i7"
+    "l c8 i8"
+    "b b b";
+}
+
+.type{
+    grid-area: t;
+}
+.colan-1{
+    grid-area: c1
+}
+.input-0{
+    grid-area: i1;
+    align-self: center;
+}
+.fname{
+    grid-area: fn;
+  
+
+}
+.colan-2{
+    grid-area: c2;
+}
+.input-1{
+    grid-area: i2;
+    align-self: center;
+}
+
+.lname{
+    grid-area: ln;
+    align-self: center;
+
+}
+.colan-3{
+    grid-area: c3;
+}
+.input-2{
+    grid-area: i3;
+    align-self: center;
+
+}
+.Department{
+    grid-area: d;
+}
+.colan-4{
+    grid-area: c4;
+}
+.input-3{
+    grid-area: i4;
+    align-self: center;
+}
+.id{
+    grid-area: id;
+}
+.colan-5{
+    grid-area: c5;
+}
+
+.input-4{
+    grid-area: i5;
+    align-self: center;
+
+}
+
+.mail{
+    grid-area: m;
+}
+.password{
+    grid-area: p;
+}
+.colan-6{
+    grid-area: c6;
+}
+.input-5{
+    grid-area: i6;
+    align-self: center;
+
+}
+.colan-7{
+    grid-area: c7;
+}
+.input-6{
+    grid-area: i7;
+    align-self: center;
+}
+
+.up-img{
+    grid-area:l;
+}
+.colan-8{
+    grid-area: c8;
+}
+.input-7{
+    grid-area: i8;
+    align-self: center;
+}
+
+.btn-signup{
+    margin-top: 30px;
+    grid-area: b;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+}
+
+
+input{
+    border: none;
+    appearance: none;
+    background-color:white;
+    padding: 6px;
+    border-radius: 5px;
+    outline: none;
+}
+select{
+    background-color:white;
+    padding: 6px;
+    border-radius: 5px;
+}
+input:focus::placeholder{
+    color:transparent;
+}
+
+input::placeholder{
+    color:rgba(34, 34, 34, 0.267);
+    transition: color .3s ease;
+}
+
+.btn-signup{
+    background-color:/* #1f456844; */#5194d34f;
+    border: none;
+    border-radius: 15px;
+    width:80px;
+    height: 30px;
+    box-shadow: 0px 0px 20px -5px rgba(128, 128, 128, 0.658);
+    transition: .3s ease;
+  /*   transform: scale(1.2); */
+
+}
+.btn-signup:hover{
+    box-shadow: 0px 0px 20px -2px rgba(128, 128, 128, 0.651);
+    transition: .3s ease;
+    background-color:/* #5194d34f; */#1f456844;
+}

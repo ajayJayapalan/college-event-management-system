@@ -1,0 +1,45 @@
+<%- include('headerUser.ejs') %>
+
+
+<div class="comp-main">
+    <div class="comp-wrapper">   
+    
+            <%if(data=="null"){ %>
+                <form action="/admin/compose/add" method="POST" >
+                    <h1>Create</h1>
+                    <br>
+                    <div class="cmp-form-group">
+                        <label for="title" class="cmp-title">Department Name</label><br>
+            <input placeholder="Department Name" class="cmp-form-control" id="title" type="text" name="dep">
+            <input type="text" class="visi" name="helper" value="plus">
+            <%}else{  %>
+                <form action="/admin/compose/edit" method="POST" >
+                    <h1>Create</h1>
+                    <br>
+                    <div class="cmp-form-group">
+                        <label for="title" class="cmp-title">Department Name</label><br>
+                <input readonly placeholder="Department Name" value="<%=data%>" class="cmp-form-control" id="title" type="text" name="dep">
+                <input type="text" class="visi" name="helper" value="notplus">
+            <%}%>
+            <br>
+            <br>
+        <%#    <input class="visi"  type="text" name="dep" value="">
+            <input class="visi"  type="text" name="rid" value="">
+            <input class="visi"  type="text" name="hod" value="">   %>
+
+            <label for="post" class="cmp-title">HOD</label><br>
+            <input placeholder="HOD ID Number" class="cmp-form-control" id="title" type="text" name="hod"><br><br>
+           
+           
+            <button class="cmp-publish" type="submit">Save</button>
+        </div>
+    </form>
+    </div>
+</div>
+<script type="text/javascript" src="/script/handler.js"></script>
+
+
+
+
+
+    <%- include('footerUser.ejs') %>

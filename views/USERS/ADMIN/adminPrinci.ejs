@@ -1,0 +1,50 @@
+<%- include('headerUser.ejs') %>
+<div class="comp-main" style="margin-bottom: 50px;">
+    <div class="comp-wrapper">   
+    <form action="/admin/princi" method="POST" enctype="multipart/form-data" >
+        <h1>Add Principal</h1>
+        <br>
+        <div class="cmp-form-group">
+
+            
+
+
+            <label for="title" class="cmp-title">First Name</label><br>
+            <input  class="cmp-form-control" id="title" type="text" name="fname">
+            <br>
+            <br>
+            <label for="title" class="cmp-title">Last Name</label><br>
+            <input  class="cmp-form-control" id="title" type="text" name="lname">
+            <br>
+            <br>
+            <label for="title" class="cmp-title">ID</label><br>
+            <input  class="cmp-form-control" id="title" type="text" name="rid">
+            <br>
+            <br>
+            <label for="title" class="cmp-title">Email</label><br>
+            <input  class="cmp-form-control" id="title" type="email" name="email">
+            <br>
+            <br>
+            <label for="title" class="cmp-title">Password</label><br>
+            <input  class="cmp-form-control" id="title" type="password" name="password">
+            <br>
+            <br>
+        <%#    <input class="visi"  type="text" name="dep" value="">
+            <input class="visi"  type="text" name="rid" value="">
+            <input class="visi"  type="text" name="hod" value="">   %>
+           
+            
+            <label for="title" class="cmp-title">Upload Image</label><br>
+         
+            <input style="margin-top: 10px;" type="file" name="image" value="null" id="image" >
+        <br>
+        <br>
+           
+           
+           
+            <button class="cmp-publish" type="submit">Save</button>
+        </div>
+    </form>
+    </div>
+</div>
+    <%- include('footerUser.ejs') %>

@@ -1,0 +1,53 @@
+<%- include('partialsSignup/header.ejs') %>
+    <main class="main">
+        <div class="up-reg">
+            <form action="/signup" method="POST" enctype="multipart/form-data" >
+                <h1 align="center" style="margin: 10px;">Sign Up</h1>
+                <hr style="color: black;">
+                <div class="grid-content-2">
+                   <p class="Type">Type</p>
+                    <p class="colan-1">:</p>
+                   <span class="input-0"> <select  class="form-control" name="type">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="other">Other</option>
+                </select></span>
+
+                <p class="fname">first Name</p>
+                <p class="colan-2">:</p>
+                <span class="input-1"><input placeholder="Enter your First name" type="text" name="fname" pattern="[a-zA-Z ]+" class="form-control" required></span>
+                <p class="lname">Last Name</p>
+                <p class="colan-3">:</p>
+                <span class="input-2"><input placeholder="Enter your Last name" type="text" name="lname" pattern="[a-zA-Z ]+" class="form-control" required></span>
+                <p class="Department">Department</p>
+                <p class="colan-4">:</p>
+                <span class="input-3"><select class="form-control" name="department">
+                    <%for(let i =0; i< data.length;i++) {%>
+                    <option value="<%=data[i]._id%>"><%=data[i].department%></option>
+                    <%}%>
+                    <option value="none">None</option>
+                </select></span>
+                <p class="id">ID</p>
+                <p class="colan-5">:</p>
+                <span class="input-4"><input type="text" name="rid" class="form-control" placeholder="Enter your ID number" required></span>
+                <p class="mail">Email</p>
+                <p class="colan-6">:</p>
+                <span class="input-5">
+                    <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" required placeholder="Enter Email ID">
+                </span>
+
+
+                   <p class="password">Password</p>
+                   <p class="colan-7">:</p>
+                  <span class="input-6">  <input type="password" value="Qwerty@123" name="password"  class="form-control" required placeholder="Enter Password "></span>
+                  <p class="up-img">Upload Image</p>
+         <p class="colan-8">:</p>
+         <span class="input-7">
+            <input style="margin-top: 10px;" type="file" name="image" value="null" id="image" >
+        </span>
+                  <button class="btn-signup" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include('partialsSignin/footer.ejs') %>

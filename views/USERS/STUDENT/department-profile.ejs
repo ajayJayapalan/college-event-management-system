@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/student-style.css">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png">
+    <title>Event.io</title>
+</head>
+
+<body>
+    <!-- <div id="samp">HI</div>  -->
+  
+
+
+    <main class="main-4 ">
+        <div class="dep-prf-wrapper">
+            <div class="dep-prf-header">
+                <a href="<%=path%>">
+                    <div class="arrow">
+                        <img src="../images/arrow.png" alt="plus">
+                    </div>
+                </a>
+
+                <div class="dep-prf-pic">
+                    <img class="dep-img-prf" src="../images/cs.jpg">
+          <a href="/<%=depname%>/members">    <img class="dep-img-grp" src="../images/group.png"></a>
+                    
+                </div>
+                <div class="dep-bio">
+                    <h1><%= depname%></h1>
+                    <span>Department</span>
+
+                    
+                </div>
+            </div> 
+
+            <div class="dep-feed-wrapper">
+                <% for(let i =0 ; i < doc.length ; i++) {%>
+                <div style="padding: 20px;" class=" dep-feed">
+
+                    <h3 style="background-color:  rgba(255, 255, 255, 0.473) ; display: inline ; padding: 10px; border-radius: 10px;"><%= doc[i].title%></h3>
+                    <% if(doc[i].img != null){%>
+                    <img class="multer" src="/uploads/<%=doc[i].img%>"  >
+                  <%}%>
+                    <p style="background-color: rgba(255, 255, 255, 0.473); border-radius: 10px; padding: 5px 10px; min-height: 50px;"><%= doc[i].feed%></p>
+                    <% if(doc[i].author != null) { %>
+                
+                
+    
+                        <p  style="display: inline;"> Posted By <h3 style="display: inline;"><a href="/<%= doc[i].departmentName%>/<%= doc[i].author.rid%>" style="text-decoration: underline; color:  rgb(95, 183, 241);"><%= doc[i].author.fname%> <%= doc[i].author.lname%></a> </h3></p>  
+                           <%}%>
+                </div>
+                <% } %>
+            </div>
+             
+        </div>
+
+
+    </main>
+    <footer class="footer">
+        <h3>Designed by Ajay J</h3>
+        <p>As a part of my Main Project @ AL AMEEN College, Edathala</p>
+    </footer>
+    <script type="text/javascript" src="/script/handler.js"></script>
+</body>
+
+</html>

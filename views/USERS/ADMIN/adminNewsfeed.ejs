@@ -1,0 +1,95 @@
+
+<%- include('headerUser.ejs') %>
+<div class="notify-wrapper visi">
+    <!--         <h4>Notification 1</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 2</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+    <!--         <h4>Notification 3</h4>
+     -->        <p>Lorem, ipsum dolor sit amet consectetur 
+            </p>
+        </div> 
+
+
+<!--     NEWSFEED CONTENT  -->
+<main class="main-1 ">
+    <div class="wrapper">
+
+
+        <!-- <div class=" content">
+            <h3>Department-1</h3>
+            <h5>Title</h5>
+            <p class="sub-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, sequi voluptate possimus provident
+                deleniti, eligendi dolorem earum, corporis eveniet doloribus iste qui sint corrupti inventore quod
+                nulla in et. Sapiente?
+
+            </p>
+
+        </div>  -->   
+        
+        <% for(let i =0 ; i < doc.length ; i++) {%>
+            <div  class="content"> 
+            <%# console.log(posts[i].title)%>
+            <% if(doc[i].departmentName == null) { %>
+                
+                <h2>College Event</h2>
+                <%} else {%>
+    
+                <h2><%= doc[i].departmentName%></h2>
+                <%}%>
+            <div style="padding: 15px; border-radius: 20px; background: rgba(128, 128, 128, 0.158);">
+            <h3 style="padding: 8px;  border-radius: 15px; background: white; display: inline;"><%= doc[i].title%></h3>
+            <% if(doc[i].img != null){%>
+            <img class="multer" src="/uploads/<%=doc[i].img%>"  >
+            <%}%>
+            <p style="background-color: white; min-height: 5rem;" class="sub-content">
+                <%= doc[i].feed%>
+
+            </p>
+            <% if(doc[i].author != null) { %>
+                
+                
+    
+                <p  style="display: inline;"> Posted By <h3 style="display: inline;"><a href="/<%= doc[i].departmentName%>/<%= doc[i].author.rid%>" style="text-decoration: underline; color:  rgb(95, 183, 241);"><%= doc[i].author.fname%> <%= doc[i].author.lname%></a> </h3></p>  
+                   <%}%>
+            
+            </div>
+        </div> 
+            <% } %>
+
+        
+    </div>
+</main>
+ 
+<script>
+    document.getElementById('newsfeed').classList.add("point");
+    
+/*******************NOTIFICATION************************* */
+
+var notfi  = document.getElementById("notify");
+var x = 0 ;
+
+notfi.onclick = notfy ;
+
+function  notfy()
+{
+    if(x==0)
+    {
+        document.getElementById("notify").classList.add("point");
+        document.querySelector(".notify-wrapper").classList.remove("visi");
+        x=1;
+    }else{
+        document.getElementById("notify").classList.remove("point");
+
+        document.querySelector(".notify-wrapper").classList.add("visi");
+        x=0;
+    }
+}
+</script>
+
+
+ 
+<%- include('footerUser.ejs') %>
